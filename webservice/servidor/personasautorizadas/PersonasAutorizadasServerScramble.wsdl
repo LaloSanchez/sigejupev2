@@ -1,0 +1,49 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+
+<definitions name='ImagenesServer' 
+             targetNamespace='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/' 
+             xmlns:tns='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='ServicePersonasAutorizadasRequest'>
+        <part name="jsonRequest" type="xsd:string"/>     
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message> 
+    
+   
+    <message name='ServicePersonasAutorizadassResponse'>          
+        <part name='jsonResponse' type='xsd:string'/> 
+    </message>                                   
+      
+     
+    <portType name='ScramblePortType'>           
+        <operation name='ServicePersonasAutorizadas'>
+            <input message='tns:ServicePersonasAutorizadasRequest'/> 
+            <output message='tns:ServicePersonasAutorizadassResponse'/>   
+        </operation>      
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' 
+                      transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='ServicePersonasAutorizadas'> 
+            <soap:operation soapAction='urn:localhost-scramble#ServicePersonasAutorizadas'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>       
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/personasautorizadas/PersonasAutorizadasServer.php?wsdl'/> 
+        </port> 
+    </service>
+</definitions> 

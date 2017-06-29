@@ -1,0 +1,122 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='DelitosServer' 
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/' 
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='insertaDelitoRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message>
+
+    <message name='actualizaDelitoRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message>
+
+    <message name='borraDelitoRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message>
+
+    <message name='selectDelitoRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message>
+    
+    <message name='insertaDelitoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <message name='actualizaDelitoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <message name='borraDelitoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <message name='selectDelitoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <portType name='ScramblePortType'>           
+        <operation name='insertaDelito'>
+            <input message='tns:insertaDelitoRequest'/> 
+            <output message='tns:insertaDelitoResponse'/>   
+        </operation>
+        <operation name='actualizaDelito'>
+            <input message='tns:actualizaDelitoRequest'/> 
+            <output message='tns:actualizaDelitoResponse'/>   
+        </operation>
+        <operation name='borraDelito'>
+            <input message='tns:borraDelitoRequest'/> 
+            <output message='tns:borraDelitoResponse'/>   
+        </operation>
+        <operation name='selectDelito'>
+            <input message='tns:selectDelitoRequest'/> 
+            <output message='tns:selectDelitoResponse'/>   
+        </operation>
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' 
+                      transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='insertaDelito'> 
+            <soap:operation soapAction='urn:localhost-scramble#insertaDelito'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='actualizaDelito'> 
+            <soap:operation soapAction='urn:localhost-scramble#actualizaDelito'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='borraDelito'> 
+            <soap:operation soapAction='urn:localhost-scramble#borraDelito'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='selectDelito'> 
+            <soap:operation soapAction='urn:localhost-scramble#selectDelito'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/pasoCuatro/DelitosServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

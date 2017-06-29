@@ -1,0 +1,189 @@
+.hljs-class .hljs-title,.hljs-type,.vhdl .hljs-literal,.tex .hljs-command{color:#458;font-weight:bold}
+.hljs-tag,.hljs-tag .hljs-title,.hljs-rule .hljs-property,.django .hljs-tag .hljs-keyword{color:#000080;font-weight:normal}
+.hljs-attribute,.hljs-variable,.lisp .hljs-body,.hljs-name{color:#008080}.hljs-regexp{color:#009926}
+.hljs-symbol,.ruby .hljs-symbol .hljs-string,.lisp .hljs-keyword,.clojure .hljs-keyword,
+.scheme .hljs-keyword,.tex .hljs-special,.hljs-prompt{color:#990073}
+.hljs-built_in{color:#0086b3}.hljs-preprocessor,.hljs-pragma,.hljs-pi,.hljs-doctype,.hljs-shebang,.hljs-cdata{color:#999;font-weight:bold}
+.hljs-deletion{background:#fdd}.hljs-addition{background:#dfd}.diff .hljs-change{background:#0086b3}.hljs-chunk{color:#aaa}
+.main-preview-player{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.main-preview-player .video-js,.main-preview-player .playlist-container{position:relative;min-width:300px;min-height:300px;height:0}
+.main-preview-player .video-js{-webkit-box-flex:3;-ms-flex:3 1 70%;flex:3 1 70%}
+.main-preview-player .playlist-container{-webkit-box-flex:1;-ms-flex:1 1 21%;flex:1 1 21%}
+.main-preview-player .playlist-container .vjs-playlist{margin:0;position:absolute;top:0;bottom:0;left:0;right:0}
+.details{color:black;font-family:sans-serif;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;
+        -ms-flex-pack:justify;justify-content:space-between;-ms-flex-line-pack:justify;align-content:space-between;min-height:100px;overflow:scroll}
+.details .bound-properties,.details .media-properties,.details .media-events{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;-ms-flex-item-align:auto;
+             align-self:auto;min-width:200px;padding:10px}
+.details .slider-name,.details label.checkbox-name,.details .list-header,.details .list-item-name{font-weight:bold}
+.details .list{list-style-type:none;padding:0}.details .list .list-header{font-size:1.2em;font-variant:small-caps}
+.details .list .list-item{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;
+          -ms-flex-pack:justify;justify-content:space-between;padding:5px}
+.details .list .list-item:nth-child(even){background-color:lightgrey}
+.details .list .list-item-name,.details .list .list-item-value{min-width:125px}
+.details .list .list-item-name{-webkit-box-flex:1;-ms-flex:1 0 0;flex:1 0 0}
+.details .list .list-item-value{-webkit-box-flex:1;-ms-flex:1 1 0;flex:1 1 0;overflow-wrap:break-word}
+.details .bound-props-form .slider-value{float:right}.details .bound-props-form .slider-volume .slider-value:after{content:'%'}
+
+.vjs-playlist {
+  list-style-type: none;
+  overflow: auto;
+  position: relative;
+}
+.vjs-playlist .vjs-playlist-item {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.vjs-playlist .vjs-playlist-thumbnail {
+  background-color: #FFFFFF;
+  display: block;
+  float: left;
+}
+.vjs-playlist .vjs-playlist-thumbnail:before {
+  display: block;
+  position: absolute;
+  background-color: rgba(26, 26, 26, 0.5);
+  text-align: center;
+}
+.vjs-playlist img {
+  width: 96%;
+  height: 81%;
+}
+.vjs-playlist .vjs-playlist-duration {
+  background-color: rgba(26, 26, 26, 0.8);
+  left: 0;
+  padding: 2px 8px;
+  position: absolute;
+  top: 0;
+}
+.vjs-playlist .vjs-selected .vjs-playlist-duration {
+  display: none;
+}
+.vjs-playlist cite {
+  display: block;
+  font-style: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vjs-playlist .vjs-playlist-description {
+  color: #a6a6a6;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0;
+  white-space: nowrap;
+}
+/* Prevent interaction with the playlist menu while ads are playing */
+/* on browsers that don't support pointer-events (IE<11), prevent
+scrolling past the ad overlay */
+.vjs-playlist.vjs-ad-playing {
+  overflow: hidden;
+}
+/* prevent clicks and scrolling from affecting the playlist during ads */
+.vjs-playlist.vjs-ad-playing.vjs-csspointerevents {
+  pointer-events: none;
+  overflow: auto;
+}
+/* darken the playlist menu display to indicate it's not interactive
+during ads and capture click events on IE<11 */
+.vjs-playlist.vjs-ad-playing .vjs-playlist-ad-overlay {
+  display: none;
+}
+.vjs-playlist.vjs-ad-playing .vjs-playlist-ad-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* IE8 fallback */
+  background-color: #fff;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  /* modern browsers */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* Parametric rules. These are specialized for touch and mouse-based devices */
+/* Touch-device playlist dimensions */
+.vjs-playlist {
+  font-size: 14px;
+  min-width: 238px;
+  background-color: #fff;
+  color: #000;
+  padding: 14px 14px 0 14px;
+}
+.vjs-playlist .vjs-playlist-item {
+  height: 56px;
+  margin-bottom: 14px;
+}
+.vjs-playlist .vjs-playlist-thumbnail {
+  height: 56px;
+  font-size: 11px;
+  margin-right: 14px;
+  width: 100px;
+}
+.vjs-playlist .vjs-selected .vjs-playlist-thumbnail:before {
+  height: 56px;
+  line-height: 56px;
+  width: 100px;
+}
+.vjs-playlist time {
+  font-size: 11px;
+}
+.vjs-playlist cite {
+  height: 14px;
+  line-height: 14px;
+}
+.vjs-playlist .vjs-playlist-description {
+  height: 42px;
+  line-height: 21px;
+}
+/* Mouse-only playlist dimensions */
+.vjs-mouse.vjs-playlist {
+  font-size: 17px;
+  min-width: 289px;
+  background-color: #fff;
+  color: #000;
+  padding: 17px 17px 0 17px;
+}
+.vjs-mouse.vjs-playlist .vjs-playlist-item {
+  height: 68px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #cecece;
+}
+.vjs-mouse.vjs-playlist .vjs-playlist-thumbnail {
+  height: 68px;
+  font-size: 13px;
+  margin-right: 17px;
+  width: 83px;
+}
+.vjs-mouse.vjs-playlist .vjs-selected .vjs-playlist-thumbnail:before {
+  height: 68px;
+  line-height: 68px;
+  width: 121px;
+}
+.vjs-mouse.vjs-playlist time {
+  font-size: 13px;
+}
+.vjs-mouse.vjs-playlist cite {
+  height: 17px;
+  line-height: 17px;
+}
+.vjs-mouse.vjs-playlist .vjs-playlist-description {
+  height: 51px;
+  line-height: 26px;
+}
+.vjs-mouse.vjs-playlist .vjs-playlist-item:hover .vjs-playlist-thumbnail:before,
+.vjs-mouse.vjs-playlist .vjs-playlist-item:focus .vjs-playlist-thumbnail:before {
+  border-radius: 5px;
+  font-family: 'VideoJS';
+  height: 34px;
+  left: 40.5px;
+  line-height: 34px;
+  top: 17px;
+  width: 40px;
+}
+.vjs-playlist-now-playing:before {
+  content: 'Now Playing';
+  top: 0;
+  left: 0;
+}

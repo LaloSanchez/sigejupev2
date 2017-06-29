@@ -1,0 +1,71 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='ConfiguracionHojasServer' 
+             targetNamespace='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/' 
+             xmlns:tns='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='insertConfiguracionHojasRequest'>
+        <part name="json" type="xsd:string"/> 
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message> 
+    
+    <message name='consultarConfiguracionHojasRequest'>
+        <part name="json" type="xsd:string"/> 
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message> 
+    
+    <message name='insertConfiguracionHojasResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>                                   
+    
+    <message name='consultarConfiguracionHojasResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>    
+     
+    <portType name='ScramblePortType'>           
+        <operation name='insertConfiguracionHojas'>
+            <input message='tns:insertConfiguracionHojasRequest'/> 
+            <output message='tns:insertConfiguracionHojasResponse'/>   
+        </operation>
+        <operation name='consultarConfiguracionHojas'>
+            <input message='tns:consultarConfiguracionHojasRequest'/> 
+            <output message='tns:consultarConfiguracionHojasResponse'/>   
+        </operation>      
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' 
+                      transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='insertConfiguracionHojas'> 
+            <soap:operation soapAction='urn:localhost-scramble#insertConfiguracionHojas'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='consultarConfiguracionHojas'> 
+            <soap:operation soapAction='urn:localhost-scramble#consultarConfiguracionHojas'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>        
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/configuracionhojas/ConfiguracionHojasServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

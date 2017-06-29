@@ -1,0 +1,134 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='DistritosServer' 
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/desarrollo/webservice/servidor/' 
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/desarrollo/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='guardarPromocionterminoRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonPromocionCausa" type="xsd:string"/>
+        <part name="listaPromoventes" type="xsd:string"/>
+    </message>     
+    <message name='guardarPromocionterminoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>  
+    
+    <message name='obtenerCarpetasRequest'>   
+        <part name="consulta" type="xsd:string"/>
+    </message>
+    <message name='obtenerCarpetasResponse'>      
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+    
+    <message name='obtenerJuzgadosRequest'>   
+        <part name="consulta" type="xsd:string"/>
+    </message>
+    <message name='obtenerJuzgadosResponse'>      
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+    
+    <message name='obtenerGenerosRequest'>   
+        <part name="consulta" type="xsd:string"/>
+    </message>
+    <message name='obtenerGenerosResponse'>      
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+    
+    <message name='obtenerTipoPersonasRequest'>   
+        <part name="consulta" type="xsd:string"/>
+    </message>
+    <message name='obtenerTipoPersonasResponse'>      
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+  
+     
+    <portType name='ScramblePortType'>           
+        <operation name='guardarPromociontermino'>
+            <input message='tns:guardarPromocionterminoRequest'/> 
+            <output message='tns:guardarPromocionterminoResponse'/>   
+        </operation>
+       
+       <operation name='obtenerCarpetas'>
+            <input message='tns:obtenerCarpetasRequest'/>
+            <output message='tns:obtenerCarpetasResponse'/>
+        </operation>
+        
+        <operation name='obtenerJuzgados'>
+            <input message='tns:obtenerJuzgadosRequest'/>
+            <output message='tns:obtenerJuzgadosResponse'/>
+        </operation>
+        
+        <operation name='obtenerGeneros'>
+            <input message='tns:obtenerGenerosRequest'/>
+            <output message='tns:obtenerGenerosResponse'/>
+        </operation>
+        
+        <operation name='obtenerTipoPersonas'>
+            <input message='tns:obtenerTipoPersonasRequest'/>
+            <output message='tns:obtenerTipoPersonasResponse'/>
+        </operation>
+        
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='guardarPromociontermino'> 
+            <soap:operation soapAction='urn:localhost-scramble#guardarPromociontermino'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        
+        <operation name='obtenerCarpetas'> 
+            <soap:operation soapAction='urn:localhost-scramble#obtenerCarpetas'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        
+        <operation name='obtenerJuzgados'> 
+            <soap:operation soapAction='urn:localhost-scramble#obtenerJuzgados'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        
+        <operation name='obtenerGeneros'> 
+            <soap:operation soapAction='urn:localhost-scramble#obtenerGeneros'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        
+        <operation name='obtenerTipoPersonas'> 
+            <soap:operation soapAction='urn:localhost-scramble#obtenerTipoPersonas'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+       
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupev2/desarrollo/webservice/servidor/promocionestermino/PromocionesterminoServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

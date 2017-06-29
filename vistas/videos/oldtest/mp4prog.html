@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>HTML5 MediaElement</title>	
+	
+	<script src="./build/jquery.js"></script>	
+	<script src="./build/mediaelement-and-player.min.js"></script>
+	<link rel="stylesheet" href="./build/mediaelementplayer.min.css" />
+        
+        <link rel="stylesheet" href="./build/mejs-skins.css" />
+</head>
+<body>
+
+<h1>MediaElementPlayer.js</h1>
+
+<video width="640" height="360" id="video_player" src="http://10.22.165.166:81/video/carlosreyemperador-fixed.mp4" type="video/mp4" 
+controls="controls" poster="./media/oceans.jpg" preload="none"></video>
+
+<script>
+var Player = new MediaElement('video_player', {
+    features: [ 'flash' ],
+    enablePseudoStreaming: true,
+    pseudoStreamingStartQueryParam: 'start'
+});
+
+Player.play();
+</script>
+</body>
+</html>
+
+

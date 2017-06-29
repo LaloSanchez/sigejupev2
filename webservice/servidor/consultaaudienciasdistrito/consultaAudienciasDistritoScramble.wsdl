@@ -1,0 +1,52 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='consultaAudienciasDistritoServer'
+             targetNamespace='http://dticursos.pjedomex.gob.mx/webservice/servidor/consultaaudienciasdistrito'
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/consultaaudienciasdistrito'
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+    <message name='consultaAudienciasDistritosRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>
+    </message>
+
+    <message name='consultaAudienciasDistritosResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <portType name='ScramblePortType'>
+
+        <operation name='consultaAudienciasDistritos'>
+            <input message='tns:consultaAudienciasDistritosRequest'/>
+            <output message='tns:consultaAudienciasDistritosResponse'/>
+        </operation>
+
+    </portType>
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'>
+
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+
+        <operation name='consultaAudienciasDistritos'>
+            <soap:operation soapAction='urn:localhost-scramble#consultaAudienciasDistritos'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+        
+    </binding>
+
+    <service name='ScrambleService'>
+        <port name='ScramblePort' binding='ScrambleBinding'>
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/consultaaudienciasdistrito/consultaAudienciasDistritoServer.php'/>
+            <!--<soap:address location='http://localhost/sigejupev2/webservice/servidor/consultaaudienciasdistrito/consultaAudienciasDistritoServer.php'/>-->
+        </port>
+    </service>
+</definitions>

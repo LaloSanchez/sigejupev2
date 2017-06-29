@@ -1,0 +1,150 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='SolicitudesServer'
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/'
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/'
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+    <message name='creaSolicitudRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='actualizaSolicitudRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='consultaSolicitudesRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+    <message name='consultarResumenRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+    <message name='envioRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='creaSolicitudResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='actualizaSolicitudResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='consultaSolicitudesResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+    <message name='consultarResumenResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+    <message name='envioResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <portType name='ScramblePortType'>
+
+        <operation name='creaSolicitud'>
+            <input message='tns:creaSolicitudRequest'/>
+            <output message='tns:creaSolicitudResponse'/>
+        </operation>
+
+        <operation name='actualizaSolicitud'>
+            <input message='tns:actualizaSolicitudRequest'/>
+            <output message='tns:actualizaSolicitudResponse'/>
+        </operation>
+
+        <operation name='consultaSolicitudes'>
+            <input message='tns:consultaSolicitudesRequest'/>
+            <output message='tns:consultaSolicitudesResponse'/>
+        </operation>
+        <operation name='consultarResumen'>
+            <input message='tns:consultarResumenRequest'/>
+            <output message='tns:consultarResumenResponse'/>
+        </operation>
+        <operation name='envio'>
+            <input message='tns:envioRequest'/>
+            <output message='tns:envioResponse'/>
+        </operation>
+
+    </portType>
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'>
+
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+
+        <operation name='creaSolicitud'>
+            <soap:operation soapAction='urn:localhost-scramble#creaSolicitud'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='actualizaSolicitud'>
+            <soap:operation soapAction='urn:localhost-scramble#actualizaSolicitud'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='consultaSolicitudes'>
+            <soap:operation soapAction='urn:localhost-scramble#consultaSolicitudes'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+        
+        <operation name='consultarResumen'>
+            <soap:operation soapAction='urn:localhost-scramble#consultarResumen'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+        <operation name='envio'>
+            <soap:operation soapAction='urn:localhost-scramble#envio'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name='ScrambleService'>
+        <port name='ScramblePort' binding='ScrambleBinding'>
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/pasoUno/SolicitudesServer.php'/>
+        </port>
+    </service>
+</definitions>

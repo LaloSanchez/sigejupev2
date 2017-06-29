@@ -1,0 +1,73 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+
+<definitions name='ImagenesServer' 
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/indicadores/IndicadoresServerScramble.wsdl' 
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/indicadores/IndicadoresServerScramble.wsdl' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='SelectDAORequest'>
+        <part name="jsonRequest" type="xsd:string"/>   
+        <part name="usuario" type="xsd:string"/>
+        <part name="contrasenia" type="xsd:string"/>
+    </message> 
+    
+   
+    <message name='SelectDAOResponse'>          
+        <part name='jsonResponse' type='xsd:string'/> 
+    </message>                                   
+    <message name='cargarCombosRequest'>
+        <part name="jsonRequest" type="xsd:string"/>  
+        <part name="usuario" type="xsd:string"/>
+        <part name="contrasenia" type="xsd:string"/> 
+    </message> 
+    
+   
+    <message name='cargarCombosResponse'>          
+        <part name='jsonResponse' type='xsd:string'/> 
+    </message>
+     
+    <portType name='ScramblePortType'>           
+        <operation name='SelectDAO'>
+            <input message='tns:SelectDAORequest'/> 
+            <output message='tns:SelectDAOResponse'/>   
+        </operation>  
+        <operation name='cargarCombos'>
+            <input message='tns:cargarCombosRequest'/> 
+            <output message='tns:cargarCombosResponse'/>   
+        </operation>      
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' 
+                      transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='SelectDAO'> 
+            <soap:operation soapAction='urn:localhost-scramble#SelectDAO'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>  
+        <operation name='cargarCombos'> 
+            <soap:operation soapAction='urn:localhost-scramble#cargarCombos'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>     
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/indicadores/IndicadoresServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

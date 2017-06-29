@@ -1,0 +1,43 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='StreamingServer' 
+             targetNamespace='http://streaming.dev/' 
+             xmlns:tns='http://streaming.dev/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='codecStreamingRequest'>
+        <part name="uuidAudiencia" type="xsd:string"/>
+        <part name="uuidvideoAudiencia" type="xsd:string"/>
+        <part name="pathVideo" type="xsd:string"/>
+    </message>
+            
+    <message name='codecStreamingResponse'>          
+        <part name='uriAudiencia' type='xsd:string'/> 
+    </message>
+                                     
+    <portType name='ScramblePortType'>           
+        <operation name='codecStreaming'>
+            <input message='tns:codecStreamingRequest'/> 
+            <output message='tns:codecStreamingResponse'/>   
+        </operation>
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='codecStreaming'> 
+            <soap:operation soapAction='urn:localhost-scramble#codecStreaming'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://streaming.dev/Streaming.php'/> 
+        </port> 
+    </service>
+</definitions>

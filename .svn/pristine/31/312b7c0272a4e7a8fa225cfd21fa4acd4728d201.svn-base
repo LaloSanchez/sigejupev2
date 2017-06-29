@@ -1,0 +1,125 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+
+<definitions name='ImputadosSolicitudesServer' 
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/' 
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='guardarImputadoSolicitudRequest'>
+        <part name="jsonRequest" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>
+    </message> 
+    
+    <message name='guardarImputadoSolicitudsResponse'>          
+        <part name='jsonResponse' type='xsd:string'/> 
+    </message>
+    
+    <!-- Modificar -->
+    <message name='editarImputadoSolicitudRequest'>
+        <part name="jsonRequest" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>
+    </message> 
+    
+    <message name='editarImputadoSolicitudsResponse'>          
+        <part name='jsonResponse' type='xsd:string'/> 
+    </message>                                   
+    
+    
+    <!-- Eliminar -->
+    <message name='eliminarImputadoSolicitudRequest'>
+        <part name="jsonRequest" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>
+    </message>
+    
+    <message name='eliminarImputadoSolicitudsResponse'>          
+        <part name='jsonResponse' type='xsd:string'/> 
+    </message>
+    <!-- Consultar -->
+    <message name='consultarImputadoSolicitudRequest'>
+        <part name="jsonRequest" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>
+    </message> 
+    
+    <message name='consultarImputadoSolicitudsResponse'>          
+        <part name='jsonResponse' type='xsd:string'/> 
+    </message>                                   
+    
+    <portType name='ScramblePortType'>           
+        <operation name='guardarImputadoSolicitud'>
+            <input message='tns:guardarImputadoSolicitudRequest'/> 
+            <output message='tns:guardarImputadoSolicitudsResponse'/>   
+        </operation>      
+        <operation name='editarImputadoSolicitud'>
+            <input message='tns:editarImputadoSolicitudRequest'/> 
+            <output message='tns:editarImputadoSolicitudsResponse'/>   
+        </operation>
+        <operation name='consultarImputadoSolicitud'>
+            <input message='tns:consultarImputadoSolicitudRequest'/> 
+            <output message='tns:consultarImputadoSolicitudsResponse'/>   
+        </operation>
+        <operation name='eliminarImputadoSolicitud'>
+            <input message='tns:eliminarImputadoSolicitudRequest'/> 
+            <output message='tns:eliminarImputadoSolicitudsResponse'/>   
+        </operation>
+    </portType>
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' 
+                      transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='guardarImputadoSolicitud'> 
+            <soap:operation soapAction='urn:localhost-scramble#guardarImputadoSolicitud'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='editarImputadoSolicitud'> 
+            <soap:operation soapAction='urn:localhost-scramble#editarImputadoSolicitud'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input>
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='consultarImputadoSolicitud'> 
+            <soap:operation soapAction='urn:localhost-scramble#consultarImputadoSolicitud'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='eliminarImputadoSolicitud'> 
+            <soap:operation soapAction='urn:localhost-scramble#eliminarImputadoSolicitud'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/pasodos/ImputadosSolicitudesServer.php?wsdl'/> 
+        </port> 
+    </service>
+</definitions> 

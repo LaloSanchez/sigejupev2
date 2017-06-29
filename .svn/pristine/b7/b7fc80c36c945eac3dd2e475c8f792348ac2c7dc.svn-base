@@ -1,0 +1,112 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='OrdenesAprehensionServer' 
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/' 
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='insertSolicitudOrdenRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonSolicitudOrden" type="xsd:string"/>
+    </message> 
+    
+    <message name='descargaSolicitudOrdenRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="idOrden" type="xsd:string"/>
+    </message> 
+    
+    <message name='descargaSolicitudOrdenRespuestaRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="idOrden" type="xsd:string"/>
+    </message>
+    
+    <message name='consultaOrdenRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonconsultaOrden" type="xsd:string"/>
+    </message>
+        
+    <message name='insertSolicitudOrdenResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>  
+                                     
+    <message name='descargaSolicitudOrdenResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+    
+    <message name='descargaSolicitudOrdenRespuestaResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+    
+    <message name='consultaOrdenResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+     
+    <portType name='ScramblePortType'>           
+        <operation name='insertSolicitudOrden'>
+            <input message='tns:insertSolicitudOrdenRequest'/> 
+            <output message='tns:insertSolicitudOrdenResponse'/>   
+        </operation>
+        <operation name='descargaSolicitudOrden'>
+            <input message='tns:descargaSolicitudOrdenRequest'/> 
+            <output message='tns:descargaSolicitudOrdenResponse'/>   
+        </operation>
+        <operation name='descargaSolicitudOrdenRespuesta'>
+            <input message='tns:descargaSolicitudOrdenRespuestaRequest'/> 
+            <output message='tns:descargaSolicitudOrdenRespuestaResponse'/>   
+        </operation>
+        <operation name='consultaOrden'>
+            <input message='tns:consultaOrdenRequest'/> 
+            <output message='tns:consultaOrdenResponse'/>   
+        </operation>
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='insertSolicitudOrden'> 
+            <soap:operation soapAction='urn:localhost-scramble#insertSolicitudOrden'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='descargaSolicitudOrden'> 
+            <soap:operation soapAction='urn:localhost-scramble#descargaSolicitudOrden'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='descargaSolicitudOrdenRespuesta'> 
+            <soap:operation soapAction='urn:localhost-scramble#descargaSolicitudOrdenRespuesta'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='consultaOrden'> 
+            <soap:operation soapAction='urn:localhost-scramble#consultaOrden'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/solicitudesordenes/SolicitudesOrdenesServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

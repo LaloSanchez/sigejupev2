@@ -1,0 +1,122 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='RelacionServer' 
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/' 
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='insertaRelacionRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>         
+    </message>
+
+    <message name='actualizaRelacionRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>         
+    </message>
+
+    <message name='borraRelacionRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>  
+    </message>
+
+    <message name='selectRelacionRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>  
+    </message>
+    
+    <message name='insertaRelacionResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <message name='actualizaRelacionResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <message name='borraRelacionResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <message name='selectRelacionResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <portType name='ScramblePortType'>           
+        <operation name='insertaRelacion'>
+            <input message='tns:insertaRelacionRequest'/> 
+            <output message='tns:insertaRelacionResponse'/>   
+        </operation>
+        <operation name='actualizaRelacion'>
+            <input message='tns:actualizaRelacionRequest'/> 
+            <output message='tns:actualizaRelacionResponse'/>   
+        </operation>
+        <operation name='borraRelacion'>
+            <input message='tns:borraRelacionRequest'/> 
+            <output message='tns:borraRelacionResponse'/>   
+        </operation>
+        <operation name='selectRelacion'>
+            <input message='tns:selectRelacionRequest'/> 
+            <output message='tns:selectRelacionResponse'/>   
+        </operation>
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' 
+                transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='insertaRelacion'> 
+            <soap:operation soapAction='urn:localhost-scramble#insertaRelacion'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='actualizaRelacion'> 
+            <soap:operation soapAction='urn:localhost-scramble#actualizaRelacion'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='borraRelacion'> 
+            <soap:operation soapAction='urn:localhost-scramble#borraRelacion'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='selectRelacion'> 
+            <soap:operation soapAction='urn:localhost-scramble#selectRelacion'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/pasoCinco/RelacionServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

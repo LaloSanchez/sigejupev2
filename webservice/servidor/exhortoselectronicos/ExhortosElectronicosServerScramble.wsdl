@@ -1,0 +1,67 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='DistritosServer' 
+            targetNamespace='localhost/sigejupev2/webservice/servidor/' 
+            xmlns:tns='localhost/sigejupev2/webservice/servidor/' 
+            xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+            xmlns='http://schemas.xmlsoap.org/wsdl/'>  
+
+    <message name='insertExhortoRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonExhorto" type="xsd:string"/>
+    </message> 
+
+    <message name='selectExhortoRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonExhorto" type="xsd:string"/>
+    </message> 
+    
+    <message name='insertExhortoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <message name='selectExhortoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message> 
+     
+    <portType name='ScramblePortType'>           
+        <operation name='insertExhorto'>
+            <input message='tns:insertExhortoRequest'/> 
+            <output message='tns:insertExhortoResponse'/>   
+        </operation>
+        <operation name='selectExhorto'>
+            <input message='tns:selectExhortoRequest'/> 
+            <output message='tns:selectExhortoResponse'/>   
+        </operation>
+        
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='insertExhorto'> 
+            <soap:operation soapAction='urn:localhost-scramble#insertExhorto'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='selectExhorto'> 
+            <soap:operation soapAction='urn:localhost-scramble#selectExhorto'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='localhost/sigejupev2/webservice/servidor/exhortoselectronicos/ExhortosElectronicosServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

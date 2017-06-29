@@ -1,0 +1,68 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='CasosRelevantesServer' 
+             targetNamespace='http://sigejupe2.pjedomex.gob.mx/sigejupe/webservice/servidor/' 
+             xmlns:tns='http://sigejupe2.pjedomex.gob.mx/sigejupe/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='consultarCasosRelevantesRequest'>
+        <part name="json" type="xsd:string"/> 
+    </message> 
+    
+    <message name='obtenerPaginasRequest'>
+        <part name="json" type="xsd:string"/>
+    </message> 
+    
+    <message name='consultarCasosRelevantesResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>                                   
+    
+    <message name='obtenerPaginasResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>    
+     
+    <portType name='ScramblePortType'>           
+        <operation name='consultarCasosRelevantes'>
+            <input message='tns:consultarCasosRelevantesRequest'/> 
+            <output message='tns:consultarCasosRelevantesResponse'/>   
+        </operation>
+        <operation name='obtenerPaginas'>
+            <input message='tns:obtenerPaginasRequest'/> 
+            <output message='tns:obtenerPaginasResponse'/>   
+        </operation>      
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' 
+                      transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='consultarCasosRelevantes'> 
+            <soap:operation soapAction='urn:localhost-scramble#consultarCasosRelevantes'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='obtenerPaginas'> 
+            <soap:operation soapAction='urn:localhost-scramble#obtenerPaginas'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>        
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://sigejupe2.pjedomex.gob.mx/sigejupe/webservice/servidor/casosrelevantes/CasosRelevantesServer.php'/> 
+            <!--<soap:address location='http://localhost/sigejupe28/webservice/servidor/casosrelevantes/CasosRelevantesServer.php'/>--> 
+        </port> 
+    </service>
+</definitions> 

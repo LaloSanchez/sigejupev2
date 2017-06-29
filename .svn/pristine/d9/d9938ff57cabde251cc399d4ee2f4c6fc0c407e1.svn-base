@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>HTML5 MediaElement - HLS</title>	
+	
+	<script src="./build/jquery.js"></script>	
+	<script src="./build/mediaelement-and-player.min.js"></script>
+	<link rel="stylesheet" href="./build/mediaelementplayer.min.css" />
+
+<script>
+var hasFlash = function () {
+    var hasFlash = false;
+    try {
+        var ao = new ActiveXObject('ShockwaveFlash.ShockwaveFlash');
+        if (ao) {
+            hasFlash = !hasFlash;
+        }
+    } catch (e) {
+        if (navigator.mimeTypes
+            && navigator.mimeTypes['application/x-shockwave-flash'] != undefined
+            && navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin) {
+            hasFlash = !hasFlash;
+        }
+    }
+    return hasFlash;
+};
+
+</script>
+</head>
+<body>
+
+<h1>MediaElementPlayer.js</h1>
+
+
+<video width="1024" height="576" id="player1">
+    
+<source type="application/x-mpegURL" src="http://10.22.165.166:81/mobile/0000/carlosreyemperador.m3u8" />
+
+</video>
+	
+<script>
+
+if (hasFlash()||(window.navigator.userAgent.indexOf("Mac")!=-1)) {
+
+$('video').mediaelementplayer({
+	success: function(media, node, player) {
+		$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
+	}
+});
+
+}
+else
+{
+ alert ("Se requiere instalar el flashplayer, redirigiendo...");
+ parent.location = "https://get.adobe.com/es/flashplayer/","Descargar Flash Player (Requerido)."; 
+}
+
+</script>
+
+</body>
+</html>

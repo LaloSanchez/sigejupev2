@@ -1,0 +1,102 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+
+<definitions name='PasoTresServer'
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/'
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/'
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+    <message name='insertarOfendidosRequest'>
+        <part name="Ofendidos" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='obtenerOfendidosRequest'>
+        <part name="Ofendidos" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='eliminarOfendidosRequest'>
+        <part name="Ofendidos" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+
+    <message name='insertarOfendidosResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='obtenerOfendidosResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='eliminarOfendidosResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <portType name='ScramblePortType'>
+        <operation name='insertarOfendidos'>
+            <input message='tns:insertarOfendidosRequest'/>
+            <output message='tns:insertarOfendidosResponse'/>
+        </operation>
+        <operation name='obtenerOfendidos'>
+            <input message='tns:obtenerOfendidosRequest'/>
+            <output message='tns:obtenerOfendidosResponse'/>
+        </operation>
+        <operation name='eliminarOfendidos'>
+            <input message='tns:eliminarOfendidosRequest'/>
+            <output message='tns:eliminarOfendidosResponse'/>
+        </operation>
+    </portType>
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'>
+        <soap:binding style='rpc'
+                      transport='http://schemas.xmlsoap.org/soap/http'/>
+        <operation name='insertarOfendidos'>
+            <soap:operation soapAction='urn:localhost-scramble#insertarOfendidos'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='obtenerOfendidos'>
+            <soap:operation soapAction='urn:localhost-scramble#obtenerOfendidos'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='eliminarOfendidos'>
+            <soap:operation soapAction='urn:localhost-scramble#obtenerOfendidos'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+    </binding>
+
+    <service name='ScrambleService'>
+        <port name='ScramblePort' binding='ScrambleBinding'>
+            <soap:address
+                    location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/pasoTres/PasoTresServer.php'/>
+        </port>
+    </service>
+</definitions> 

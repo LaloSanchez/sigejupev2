@@ -1,0 +1,89 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='ApelacionCateosServer' 
+             targetNamespace='http://localhost/sigejupev2/desarrollo/webservice/servidor/' 
+             xmlns:tns='http://localhost/sigejupev2/desarrollo/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='consultaSolicitudesApelacionRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonsolicitudApelacionCateo" type="xsd:string"/>
+    </message>
+    
+    <message name='guardarApelacionRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonApelacionCateo" type="xsd:string"/>
+    </message> 
+    
+    <message name='detalleCateoRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonCateo" type="xsd:string"/>
+    </message> 
+            
+    <message name='consultaSolicitudesApelacionResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+        
+    <message name='guardarApelacionResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>  
+        
+    <message name='detalleCateoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>  
+                                     
+    <portType name='ScramblePortType'>           
+        <operation name='consultaSolicitudesApelacion'>
+            <input message='tns:consultaSolicitudesApelacionRequest'/> 
+            <output message='tns:consultaSolicitudesApelacionResponse'/>   
+        </operation>
+        <operation name='guardarApelacion'>
+            <input message='tns:guardarApelacionRequest'/> 
+            <output message='tns:guardarApelacionResponse'/>   
+        </operation>
+        <operation name='detalleCateo'>
+            <input message='tns:detalleCateoRequest'/> 
+            <output message='tns:detalleCateoResponse'/>   
+        </operation>
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='consultaSolicitudesApelacion'> 
+            <soap:operation soapAction='urn:localhost-scramble#consultaSolicitudApelacion'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='guardarApelacion'> 
+            <soap:operation soapAction='urn:localhost-scramble#guardarApelacion'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='detalleCateo'> 
+            <soap:operation soapAction='urn:localhost-scramble#detalleCateo'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://localhost/sigejupev2/desarrollo/webservice/servidor/apelacioncateos/ApelacionCateosServer.php'/> 
+        </port> 
+    </service>
+</definitions>

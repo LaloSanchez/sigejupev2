@@ -1,0 +1,121 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='DispositivosServer' 
+             targetNamespace='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/' 
+             xmlns:tns='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='insertDispositivosRequest'>
+        <part name="json" type="xsd:string"/> 
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message> 
+    
+    <message name='consultaDispositivosRequest'>
+        <part name="json" type="xsd:string"/> 
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message> 
+    
+    <message name='insertConstantesRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>  
+    </message>
+    
+    <message name='consultaConstantesRequest'>
+        <part name="cveEdificio" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/>  
+    </message>
+    
+    <message name='insertDispositivosResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>                                   
+    
+    <message name='consultaDispositivosResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+    
+    <message name='insertConstantesResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>                                   
+    
+    <message name='consultaConstantesResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+     
+    <portType name='ScramblePortType'>           
+        <operation name='insertDispositivos'>
+            <input message='tns:insertConstantesRequest'/> 
+            <output message='tns:insertDispositivosResponse'/>   
+        </operation>
+        <operation name='consultarDispositivos'>
+            <input message='tns:consultaDispositivosRequest'/> 
+            <output message='tns:consultaDispositivosResponse'/>   
+        </operation>
+        <operation name='insertConstantes'>
+            <input message='tns:insertConstantesRequest'/> 
+            <output message='tns:insertConstantesResponse'/>   
+        </operation>
+        <operation name='consultaConstantes'>
+            <input message='tns:consultaConstantesRequest'/> 
+            <output message='tns:consultaConstantesResponse'/>   
+        </operation>
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' 
+                      transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='insertDispositivos'> 
+            <soap:operation soapAction='urn:localhost-scramble#insertDispositivos'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='consultarDispositivos'> 
+            <soap:operation soapAction='urn:localhost-scramble#consultarDispositivos'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='insertConstantes'> 
+            <soap:operation soapAction='urn:localhost-scramble#insertConstantes'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='consultaConstantes'> 
+            <soap:operation soapAction='urn:localhost-scramble#consultaConstantes'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' 
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://expvirtual.dti.pjedomex.gob.mx/electronico/webservice/servidor/dispositivos/DispositivosServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

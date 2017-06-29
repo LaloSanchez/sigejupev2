@@ -1,0 +1,112 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='DistritosServer' 
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/' 
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='insertSolicitudCateoRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonSolicitudCateo" type="xsd:string"/>
+    </message> 
+    
+    <message name='descargaSolicitudCateoRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="idCateo" type="xsd:string"/>
+    </message>
+    
+    <message name='descargaSolicitudCateoRespuestaRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="idCateo" type="xsd:string"/>
+    </message> 
+    
+    <message name='consultaCateoRequest'>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+        <part name="jsonCateo" type="xsd:string"/>
+    </message> 
+        
+    <message name='insertSolicitudCateoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>  
+                                     
+    <message name='descargaSolicitudCateoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+    
+    <message name='descargaSolicitudCateoRespuestaResponse'>
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+    
+    <message name='consultaCateoResponse'>
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+     
+    <portType name='ScramblePortType'>           
+        <operation name='insertSolicitudCateo'>
+            <input message='tns:insertSolicitudCateoRequest'/> 
+            <output message='tns:insertSolicitudCateoResponse'/>   
+        </operation>
+        <operation name='descargaSolicitudCateo'>
+            <input message='tns:descargaSolicitudCateoRequest'/> 
+            <output message='tns:descargaSolicitudCateoResponse'/>   
+        </operation>
+        <operation name='descargaSolicitudCateoRespuesta'>
+            <input message='tns:descargaSolicitudCateoRespuestaRequest'/> 
+            <output message='tns:descargaSolicitudCateoRespuestaResponse'/>   
+        </operation>
+        <operation name='consultaCateoDetalle'>
+            <input message='tns:consultaCateoRequest'/>
+            <output message='tns:consultaCateoResponse'/>
+        </operation>
+    </portType>                                  
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='insertSolicitudCateo'> 
+            <soap:operation soapAction='urn:localhost-scramble#insertSolicitudCateo'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='descargaSolicitudCateo'> 
+            <soap:operation soapAction='urn:localhost-scramble#descargaSolicitudCateo'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='descargaSolicitudCateoRespuesta'> 
+            <soap:operation soapAction='urn:localhost-scramble#descargaSolicitudCateoRespuesta'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='consultaCateoDetalle'> 
+            <soap:operation soapAction='urn:localhost-scramble#consultaCateoDetalle'/>
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/solicitudescateos/SolicitudesCateosServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

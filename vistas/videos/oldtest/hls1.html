@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>HTML5 MediaElement - HLS</title>	
+	
+	<script src="./build/jquery.js"></script>	
+	<script src="./build/mediaelement-and-player.min.js"></script>
+	<link rel="stylesheet" href="./build/mediaelementplayer.min.css" />
+</head>
+<body>
+
+<h1>MediaElementPlayer.js</h1>
+
+<h2>HLS Wrapper</h2>
+
+<video width="640" height="360" id="player1">
+    
+    <!-- Pseudo HTML5 -->
+    <source type="application/x-mpegURL" src="http://10.22.165.166:81/mobile/carlosreyemperador-fixed.m3u8" />
+
+</video>
+	
+<script>
+
+$('video').mediaelementplayer({
+	success: function(media, node, player) {
+		$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
+	}
+});
+
+</script>
+
+</body>
+</html>

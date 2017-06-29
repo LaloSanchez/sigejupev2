@@ -1,0 +1,66 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='DefensoresScramble'
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/defensores' 
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/defensores' 
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='respuestaDefensorPublicoRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message>
+    <message name='respuestaDefensorEspecializdoRequest'>
+        <part name="json" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>    
+        <part name="passwd" type="xsd:string"/> 
+    </message>
+        
+    <message name='respuestaDefensorPublicoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+   
+    <message name='respuestaDefensorEspecializdoResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+    
+    <portType name='ScramblePortType'>           
+        <operation name='respuestaDefensorPublico'>
+            <input message='tns:respuestaDefensorPublicoRequest'/> 
+            <output message='tns:respuestaDefensorPublicoResponse'/>   
+        </operation>
+        <operation name='respuestaDefensorEspecializdo'>
+            <input message='tns:respuestaDefensorPublicoRequest'/> 
+            <output message='tns:respuestaDefensorPublicoResponse'/>   
+        </operation>
+    </portType>
+    
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='respuestaDefensorPublico'> 
+            <soap:operation soapAction='urn:localhost-scramble#respuestaDefensorPublico'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        <operation name='respuestaDefensorEspecializdo'> 
+            <soap:operation soapAction='urn:localhost-scramble#rrespuestaDefensorEspecializdo'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='ScrambleService'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://dticursos.pjedomex.gob.mx/sigejupe/webservice/servidor/defensores/DefensoresServer.php'/> 
+        </port> 
+    </service>
+</definitions> 

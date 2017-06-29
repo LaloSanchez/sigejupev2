@@ -1,0 +1,43 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+<definitions name='SentenciasPublicasServer' 
+             targetNamespace='http://sigejupe2.pjedomex.gob.mx/sigejupe/webservice/servidor/sentenciapublica/' 
+             xmlns:tns='http://sigejupe2.pjedomex.gob.mx/sigejupe/webservice/servidor/sentenciapublica/' 
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'> 
+
+    <message name='consultaSentenciasPublicasRequest'>
+        <part name="json" type="xsd:string"/>
+    </message>
+    <message name='consultaSentenciasPublicasResponse'>          
+        <part name='Resultado' type='xsd:string'/> 
+    </message>
+
+    <portType name='ScramblePortType'>           
+        <operation name='consultaSentenciasPublicas'>
+            <input message='tns:consultaSentenciasPublicasRequest'/> 
+            <output message='tns:consultaSentenciasPublicasResponse'/>   
+        </operation>
+    </portType>
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        <operation name='consultaSentenciasPublicas'> 
+            <soap:operation soapAction='urn:http://sigejupe2.pjedomex.gob.mx-scramble#consultaSentenciasPublicas'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:http://sigejupe2.pjedomex.gob.mx-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:http://sigejupe2.pjedomex.gob.mx-scramble' 
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+    </binding> 
+
+    <service name='Web Services SP'> 
+        <port name='ScramblePort' binding='ScrambleBinding'> 
+            <soap:address location='http://sigejupe2.pjedomex.gob.mx/sigejupe/webservice/servidor/sentenciapublica/SentenciasPublicas.php'/> 
+        </port> 
+    </service>
+</definitions> 

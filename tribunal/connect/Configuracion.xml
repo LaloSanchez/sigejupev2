@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-9"?>
+<provedores>
+    <MYSQL>
+        <SIGEJUPE>
+            <user>jcoronelr</user>
+            <password>jcoronelr</password>
+            <host>10.22.165.204</host>
+            <db>htsj_sigejupe</db>
+            <port>3306</port>
+            <domain>.</domain>
+            <descipcion>
+                configuracion para poder realizar la conexion de la base de datos 
+                del expediente electronico
+            </descipcion>
+        </SIGEJUPE>
+        <MASC>
+            <user>eespinoh</user>
+            <password>edeshe67</password>
+            <host>10.22.157.19</host>
+            <db>bdmediacion</db>
+            <port>3306</port>
+            <domain>.</domain>
+            <descipcion>
+                configuracion para poder realizar la conexion de la base de datos 
+                del expediente electronico
+            </descipcion>
+        </MASC>
+    </MYSQL>
+</provedores>

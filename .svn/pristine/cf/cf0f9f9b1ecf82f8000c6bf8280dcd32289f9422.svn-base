@@ -1,0 +1,450 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+
+<definitions name='PasoSeisServer'
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/'
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/'
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+    <message name='consultarRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='agregarRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='agregarEfectoViolenciaGeneroRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='eliminarEfectoViolenciaGeneroRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='agregarFactorSocialViolenciaGeneroRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='eliminarFactorSocialViolenciaGeneroRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='agregarHomicidioDolosoViolenciaGeneroRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='eliminarHomicidioDolosoViolenciaGeneroRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='agregarEfectosGeneralRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='eliminarEfectosGeneralRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='agregarConductaSexualRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='eliminarConductaSexualRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='agregarTestigosRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='eliminarTestigosRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='agregarTrataPersonasRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='eliminarTrataPersonasRequest'>
+        <part name="data" type="xsd:string"/>
+        <part name="usuario" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+    </message>
+
+    <message name='consultarResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='agregarResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='agregarEfectoViolenciaGeneroResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='eliminarEfectoViolenciaGeneroResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='agregarFactorSocialViolenciaGeneroResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='eliminarFactorSocialViolenciaGeneroResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='agregarHomicidioDolosoViolenciaGeneroResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='eliminarHomicidioDolosoViolenciaGeneroResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='agregarEfectosGeneralResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='eliminarEfectosGeneralResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='agregarConductaSexualResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='eliminarConductaSexualResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='agregarTestigosResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='eliminarTestigosResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='agregarTrataPersonasResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <message name='eliminarTrataPersonasResponse'>
+        <part name='Resultado' type='xsd:string'/>
+    </message>
+
+    <portType name='ScramblePortType'>
+        <operation name='consultar'>
+            <input message='tns:consultarRequest'/>
+            <output message='tns:consultarResponse'/>
+        </operation>
+        <operation name='agregar'>
+            <input message='tns:agregarRequest'/>
+            <output message='tns:agregarResponse'/>
+        </operation>
+        <operation name='agregarEfectoViolenciaGenero'>
+            <input message='tns:agregarEfectoViolenciaGeneroRequest'/>
+            <output message='tns:agregarEfectoViolenciaGeneroResponse'/>
+        </operation>
+        <operation name='eliminarEfectoViolenciaGenero'>
+            <input message='tns:eliminarEfectoViolenciaGeneroRequest'/>
+            <output message='tns:eliminarEfectoViolenciaGeneroResponse'/>
+        </operation>
+        <operation name='agregarFactorSocialViolenciaGenero'>
+            <input message='tns:agregarFactorSocialViolenciaGeneroRequest'/>
+            <output message='tns:agregarFactorSocialViolenciaGeneroResponse'/>
+        </operation>
+        <operation name='eliminarFactorSocialViolenciaGenero'>
+            <input message='tns:eliminarFactorSocialViolenciaGeneroRequest'/>
+            <output message='tns:eliminarFactorSocialViolenciaGeneroResponse'/>
+        </operation>
+
+        <operation name='agregarHomicidioDolosoViolenciaGenero'>
+            <input message='tns:agregarHomicidioDolosoViolenciaGeneroRequest'/>
+            <output message='tns:agregarHomicidioDolosoViolenciaGeneroResponse'/>
+        </operation>
+
+        <operation name='eliminarHomicidioDolosoViolenciaGenero'>
+            <input message='tns:eliminarHomicidioDolosoViolenciaGeneroRequest'/>
+            <output message='tns:eliminarHomicidioDolosoViolenciaGeneroResponse'/>
+        </operation>
+
+        <operation name='agregarEfectosGeneral'>
+            <input message='tns:agregarEfectosGeneralRequest'/>
+            <output message='tns:agregarEfectosGeneralResponse'/>
+        </operation>
+
+        <operation name='eliminarEfectosGeneral'>
+            <input message='tns:eliminarEfectosGeneralRequest'/>
+            <output message='tns:eliminarEfectosGeneralResponse'/>
+        </operation>
+
+        <operation name='agregarConductaSexual'>
+            <input message='tns:agregarConductaSexualRequest'/>
+            <output message='tns:agregarConductaSexualResponse'/>
+        </operation>
+
+        <operation name='eliminarConductaSexual'>
+            <input message='tns:eliminarConductaSexualRequest'/>
+            <output message='tns:eliminarConductaSexualResponse'/>
+        </operation>
+
+        <operation name='agregarTestigos'>
+            <input message='tns:agregarTestigosRequest'/>
+            <output message='tns:agregarTestigosResponse'/>
+        </operation>
+
+        <operation name='eliminarTestigos'>
+            <input message='tns:eliminarTestigosRequest'/>
+            <output message='tns:eliminarTestigosResponse'/>
+        </operation>
+
+        <operation name='agregarTrataPersonas'>
+            <input message='tns:agregarTrataPersonasRequest'/>
+            <output message='tns:agregarTrataPersonasResponse'/>
+        </operation>
+        <operation name='eliminarTrataPersonas'>
+            <input message='tns:eliminarTrataPersonasRequest'/>
+            <output message='tns:eliminarTrataPersonasResponse'/>
+        </operation>
+    </portType>
+
+
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'>
+        <soap:binding style='rpc'
+                      transport='http://schemas.xmlsoap.org/soap/http'/>
+        <operation name='consultar'>
+            <soap:operation soapAction='urn:localhost-scramble#consultar'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='agregar'>
+            <soap:operation soapAction='urn:localhost-scramble#agregar'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='agregarEfectoViolenciaGenero'>
+            <soap:operation soapAction='urn:localhost-scramble#agregarEfectoViolenciaGenero'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='eliminarEfectoViolenciaGenero'>
+            <soap:operation soapAction='urn:localhost-scramble#eliminarEfectoViolenciaGenero'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='agregarFactorSocialViolenciaGenero'>
+            <soap:operation soapAction='urn:localhost-scramble#agregarFactorSocialViolenciaGenero'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='eliminarFactorSocialViolenciaGenero'>
+            <soap:operation soapAction='urn:localhost-scramble#eliminarFactorSocialViolenciaGenero'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='agregarHomicidioDolosoViolenciaGenero'>
+            <soap:operation soapAction='urn:localhost-scramble#agregarHomicidioDolosoViolenciaGenero'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='eliminarHomicidioDolosoViolenciaGenero'>
+            <soap:operation soapAction='urn:localhost-scramble#eliminarHomicidioDolosoViolenciaGenero'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='agregarEfectosGeneral'>
+            <soap:operation soapAction='urn:localhost-scramble#agregarEfectosGeneral'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='eliminarEfectosGeneral'>
+            <soap:operation soapAction='urn:localhost-scramble#eliminarEfectosGeneral'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='agregarConductaSexual'>
+            <soap:operation soapAction='urn:localhost-scramble#agregarConductaSexual'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='eliminarConductaSexual'>
+            <soap:operation soapAction='urn:localhost-scramble#eliminarConductaSexual'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='agregarTestigos'>
+            <soap:operation soapAction='urn:localhost-scramble#agregarTestigos'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+
+        <operation name='eliminarTestigos'>
+            <soap:operation soapAction='urn:localhost-scramble#eliminarTestigos'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+
+        <operation name='agregarTrataPersonas'>
+            <soap:operation soapAction='urn:localhost-scramble#agregarTrataPersonas'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+
+        <operation name='eliminarTrataPersonas'>
+            <soap:operation soapAction='urn:localhost-scramble#eliminarTrataPersonas'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-scramble'
+                           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name='ScrambleService'>
+        <port name='ScramblePort' binding='ScrambleBinding'>
+            <soap:address
+                    location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/pasoseis/PasoSeisServer.php'/>
+        </port>
+    </service>
+</definitions>

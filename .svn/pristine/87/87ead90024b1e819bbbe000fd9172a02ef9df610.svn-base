@@ -1,0 +1,168 @@
+<?xml version ='1.0' encoding ='utf-8' ?>
+
+<definitions name='ConsultaExterna' 
+             targetNamespace='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/'
+             xmlns:tns='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/'
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+    <!-- params -->
+    <message name='ServiceGetCarpetasJudicialesPorPersonaRequest'>
+        <part name="IdPersonaautorizada" type="xsd:int"/> 
+        <part name="cveRegion" type="xsd:string"/>    
+    </message> 
+    <message name='ServiceGetCarpetasJudicialesPorPersonaResponse'>          
+        <part name='response' type='xsd:string'/> 
+    </message>       
+    
+    <message name='ServiceGetActuacionesRequest'>
+        <part name="idCarpetaJudicial" type="xsd:int"/>    
+        <part name="tipo" type="xsd:int"/>    
+        <part name="quees" type="xsd:int"/>    
+    </message> 
+    <message name='ServiceGetActuacionesResponse'>          
+        <part name='response' type='xsd:string'/> 
+    </message>
+    
+    <message name='ServiceGetDetalleCarpetaRequest'>
+        <part name="tipo" type="xsd:int"/>    
+        <part name="id" type="xsd:int"/>    
+        <part name="quees" type="xsd:int"/>    
+    </message> 
+    <message name='ServiceGetDetalleCarpetaResponse'>          
+        <part name='response' type='xsd:string'/> 
+    </message>
+    
+    <message name='ServiceGetImagenesRequest'>
+        <part name="tipo" type="xsd:int"/>    
+        <part name="id" type="xsd:int"/>    
+        <part name="quees" type="xsd:int"/>    
+    </message> 
+    <message name='ServiceGetImagenesResponse'>          
+        <part name='response' type='xsd:string'/> 
+    </message> 
+    
+    <message name='ServiceGetListadoPdfRequest'>
+        <part name="tipo" type="xsd:int"/>    
+        <part name="id" type="xsd:int"/>    
+        <part name="quees" type="xsd:int"/>    
+    </message> 
+    <message name='ServiceGetListadoPdfResponse'>          
+        <part name='response' type='xsd:string'/> 
+    </message>  
+    <message name='ServiceDescargaImagenRequest'>
+        <part name="ruta" type="xsd:string"/>    
+        <part name="nombreZip" type="xsd:string"/>    
+    </message> 
+    <message name='ServiceDescargaImagenResponse'>  
+         <part name='response' type='xsd:string'/>        
+    </message>       
+    
+    <!-- methods & params -->                                                   
+    <portType name='ScramblePortType'>       
+        <operation name='getCarpetasJudicialesPorPersona'>
+            <input message='tns:ServiceGetCarpetasJudicialesPorPersonaRequest'/> 
+            <output message='tns:ServiceGetCarpetasJudicialesPorPersonaResponse'/>   
+        </operation>      
+        
+        <operation name='getActuaciones'>
+            <input message='tns:ServiceGetActuacionesRequest'/> 
+            <output message='tns:ServiceGetActuacionesResponse'/>   
+        </operation>      
+        
+        <operation name='getDetalleCarpeta'>
+            <input message='tns:ServiceGetDetalleCarpetaRequest'/> 
+            <output message='tns:ServiceGetDetalleCarpetaResponse'/>   
+        </operation>      
+        
+        <operation name='getImagenes'>
+            <input message='tns:ServiceGetImagenesRequest'/> 
+            <output message='tns:ServiceGetImagenesResponse'/>   
+        </operation> 
+        
+        <operation name='getListadoPdf'>
+            <input message='tns:ServiceGetListadoPdfRequest'/> 
+            <output message='tns:ServiceGetListadoPdfResponse'/>   
+        </operation> 
+        
+         <operation name='descargaImagen'>
+            <input message='tns:ServiceDescargaImagenRequest'/> 
+            <output message='tns:ServiceDescargaImagenResponse'/>   
+        </operation> 
+    </portType> 
+    
+
+    <!-- operations -->
+    <binding name='ScrambleBinding' type='tns:ScramblePortType'> 
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/> 
+        
+        <operation name='getCarpetasJudicialesPorPersona'> 
+            <soap:operation soapAction='urn:localhost-scramble#getCarpetasJudicialesPorPersona'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>  
+        
+        <operation name='getActuaciones'> 
+            <soap:operation soapAction='urn:localhost-scramble#getActuaciones'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        
+        <operation name='getDetalleCarpeta'> 
+            <soap:operation soapAction='urn:localhost-scramble#getDetalleCarpeta'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+               
+        <operation name='getImagenes'> 
+            <soap:operation soapAction='urn:localhost-scramble#getImagenes'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        
+        <operation name='getListadoPdf'> 
+            <soap:operation soapAction='urn:localhost-scramble#getListadoPdf'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        
+        <operation name='descargaImagen'> 
+            <soap:operation soapAction='urn:localhost-scramble#descargaImagen'/> 
+            <input> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </input> 
+            <output> 
+                <soap:body use='encoded' namespace='urn:localhost-scramble' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/> 
+            </output> 
+        </operation>
+        
+    </binding> 
+    <service name='ScrambleService'>
+        <port name='ScramblePort' binding='ScrambleBinding'>
+            <soap:address
+                location='http://dticursos.pjedomex.gob.mx/sigejupev2/webservice/servidor/consultaexterna/ConsultaExternaServidor.php'/>
+<!--            <soap:address
+                location='http://localhost/electronico/desarrollo/webservice/servidor/consultaexterna/ConsultaExternaServidor.php'/>-->
+        </port>
+    </service>
+</definitions> 

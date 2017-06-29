@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<vistas>
+    <vista name="frmContadoresView">
+        <idContador name="txtIdContador" id="txtIdContador" hidden="true" tooltip="idContador" placeholder="idContador">idContador</idContador>
+        <numero name="txtNumero" id="txtNumero" hidden="false" tooltip="Numero del Contador" placeholder="Numero de Contador">numero</numero>
+        <anio name="txtAnio" id="txtAnio" hidden="false" tooltip="anio" placeholder="anio del contador">anio</anio>
+        <cveTipoCarpeta name="txtCveTipoCarpeta" id="txtCveTipoCarpeta" hidden="false" tooltip="cveTipoCarpeta" placeholder="cveTipoCarpeta">Tipo Carpeta</cveTipoCarpeta>
+        <cveTipoActuacion name="txtCveTipoActuacion" id="txtCveTipoActuacion" hidden="false" tooltip="cveTipoActuacion" placeholder="cveTipoActuacion">Tipo Actuacion</cveTipoActuacion>
+        <cveJuzgado name="txtCveJuzgado" id="txtCveJuzgado" hidden="false" tooltip="cveJuzgado" placeholder="cveJuzgado">Juzgado</cveJuzgado>
+        <activo name="cmbActivo" id="cmbActivo" hidden="true" tooltip="activo" placeholder="activo">Activo</activo>
+        <fechaRegistro name="txtFechaRegistro" id="txtFechaRegistro" hidden="true" tooltip="fechaRegistro" placeholder="fechaRegistro">fechaRegistro</fechaRegistro>
+        <fechaActualizacion name="txtFechaActualizacion" id="txtFechaActualizacion" hidden="true" tooltip="fechaActualizacion" placeholder="fechaActualizacion">fechaActualizacion</fechaActualizacion>
+    </vista>
+</vistas>
